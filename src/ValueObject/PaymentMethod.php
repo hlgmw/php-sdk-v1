@@ -2,12 +2,12 @@
 
 namespace Centrobill\Sdk\ValueObject;
 
-use Centrobill\Sdk\Exception\PaymentMethodException;
 use MyCLabs\Enum\Enum;
 
 final class PaymentMethod extends Enum
 {
     const PAYMENT_METHOD_CARD = "card";
+    const PAYMENT_METHOD_CC_TOKEN = "cc_token";
     const PAYMENT_METHOD_APPLEPAY = "applepay";
     const PAYMENT_METHOD_SEPA = "sepa";
     const PAYMENT_METHOD_SOFORTBANKING = "sofortbanking";
@@ -54,18 +54,8 @@ final class PaymentMethod extends Enum
     const PAYMENT_METHOD_MULTIBANCO = "multibanco";
     const PAYMENT_METHOD_BNCR = "bncr";
     const PAYMENT_METHOD_MBWAY = "mbway";
-
-    /**
-     * @throws PaymentMethodException
-     */
-    public static function isValid($value)
-    {
-        if (empty($value)) {
-            throw PaymentMethodException::emptyValue();
-        }
-
-        if (!in_array($value, PaymentMethod::toArray())) {
-            throw PaymentMethodException::invalidValue();
-        }
-    }
+    const PAYMENT_METHOD_PAPARA = "papara";
+    const PAYMENT_METHOD_HAVALE = "havale";
+    const PAYMENT_METHOD_WEBPAY_CHILE = "webpayChile";
+    const PAYMENT_METHOD_BANKTRANSFER_CHILE = "banktransferChile";
 }
